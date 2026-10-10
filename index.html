@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F6F1E7" />
+  <title>Modern Heritage Planner — Premium Productivity Concept</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-stage" aria-label="Modern Heritage productivity app concept">
+    <section class="phone-shell" aria-label="Interactive mobile prototype">
+      <div class="phone">
+        <header class="system-bar" aria-hidden="true">
+          <span class="system-time">9:43</span>
+          <div class="dynamic-island"></div>
+          <div class="status-icons">
+            <span class="signal"><i></i><i></i><i></i><i></i></span>
+            <span class="wifi">◔</span>
+            <span class="battery"><i></i></span>
+          </div>
+        </header>
+
+        <button class="announcement-strip" type="button" data-open-announcements>
+          <span class="strip-icon" data-icon="megaphone"></span>
+          <span class="announcement-marquee">
+            <span>Sean: Augie is a boggy</span>
+            <span class="marquee-dot">•</span>
+            <span>Sean: Have a great week!</span>
+          </span>
+        </button>
+
+        <div id="screenHost" class="screen-host" aria-live="polite"></div>
+
+        <div class="floating-actions" data-floating-actions>
+          <button class="floating-secondary" type="button" data-alert><span data-icon="megaphone"></span><span>Alert</span></button>
+          <button class="floating-primary" type="button" data-quick-add><span data-icon="plus"></span><span>Quick Add</span></button>
+        </div>
+
+        <nav class="bottom-nav" aria-label="Primary navigation">
+          <button class="nav-item is-active" data-screen="schedule" aria-current="page"><span class="nav-icon" data-icon="calendar"></span><span>Schedule</span></button>
+          <button class="nav-item" data-screen="activities"><span class="nav-icon" data-icon="flag"></span><span>Activities</span></button>
+          <button class="nav-item" data-screen="todo"><span class="nav-icon" data-icon="checklist"></span><span>To Do</span></button>
+          <button class="nav-item" data-screen="money"><span class="nav-icon" data-icon="coin"></span><span>Money</span></button>
+          <button class="nav-item" data-screen="capsule"><span class="nav-icon" data-icon="archive"></span><span>Time Capsule</span></button>
+        </nav>
+
+        <div class="sheet-backdrop" data-sheet-backdrop hidden></div>
+        <section class="sheet" data-sheet hidden aria-modal="true" role="dialog" aria-labelledby="sheetTitle"></section>
+      </div>
+    </section>
+  </main>
+
+  <template id="scheduleTemplate">
+    <section class="screen schedule-screen">
+      <header class="page-head split-head">
+        <div>
+          <p class="eyebrow">Kelly family</p>
+          <h1 class="display-title">Tuesday</h1>
+          <p class="subtle">October 13, 2026</p>
+        </div>
+        <div class="head-actions">
+          <button class="icon-button" type="button" aria-label="Add event" data-quick-add><span data-icon="plus"></span></button>
+          <button class="icon-button" type="button" aria-label="Calendar colours"><span data-icon="palette"></span></button>
+          <button class="avatar" type="button" aria-label="Sean profile">S</button>
+        </div>
+      </header>
+
+      <div class="segment compact-segment" role="tablist" aria-label="Calendar view">
+        <button class="segment-item is-active" type="button" data-view="week">Week</button>
+        <button class="segment-item" type="button" data-view="month">Month</button>
+      </div>
+
+      <article class="event-hero accent-rose">
+        <div class="event-icon" data-icon="home"></div>
+        <div class="event-copy"><p class="event-title">Cable Fix — Marion</p><p class="event-meta">Today · 9:00 AM · Work</p></div>
+        <span class="chevron">›</span>
+      </article>
+
+      <div class="date-toolbar">
+        <button class="ghost-icon" type="button" aria-label="Previous week">‹</button>
+        <div class="date-range"><span>Oct 9 — Oct 22</span><button class="text-link" type="button">Today</button></div>
+        <button class="ghost-icon" type="button" aria-label="Next week">›</button>
+      </div>
+
+      <div class="week-strip" aria-label="Week dates">
+        <button class="day-cell" type="button"><span>Fri</span><b>9</b><i class="day-dot rose"></i></button>
+        <button class="day-cell" type="button"><span>Sat</span><b>10</b><i></i></button>
+        <button class="day-cell" type="button"><span>Sun</span><b>11</b><i class="day-dot ink"></i></button>
+        <button class="day-cell" type="button"><span>Mon</span><b>12</b><i class="day-dot rose"></i></button>
+        <button class="day-cell is-today" type="button"><span>Tue</span><b>13</b><i class="day-dot garnet"></i></button>
+        <button class="day-cell" type="button"><span>Wed</span><b>14</b><i></i></button>
+        <button class="day-cell" type="button"><span>Thu</span><b>15</b><i class="day-dot rose"></i></button>
+      </div>
+
+      <section class="timeline" aria-label="Today's schedule">
+        <div class="timeline-row">
+          <time>10:00 AM</time>
+          <article class="timeline-card accent-garnet"><div class="mini-icon" data-icon="people"></div><div><strong>Cassidy Apt</strong><span>Family · Going</span></div><span class="chevron">›</span></article>
+        </div>
+        <div class="timeline-row">
+          <time>1:00 PM</time>
+          <article class="timeline-card accent-rose"><div class="mini-icon" data-icon="coffee"></div><div><strong>Coralville Starbucks</strong><span>Work · Going</span></div><span class="chevron">›</span></article>
+        </div>
+      </section>
+    </section>
+  </template>
+
+  <template id="activitiesTemplate">
+    <section class="screen activities-screen">
+      <header class="page-head split-head">
+        <div><p class="eyebrow">Family bulletin</p><h1 class="display-title">Activities</h1></div>
+        <button class="primary-mini" type="button" data-open-announcements><span data-icon="plus"></span> Post update</button>
+      </header>
+
+      <div class="menu-stack">
+        <button class="menu-card" type="button" data-open-announcements><span class="menu-icon" data-icon="megaphone"></span><span><strong>Announcements</strong><small>Post family updates and comments.</small></span><span class="chevron">›</span></button>
+        <button class="menu-card" type="button"><span class="menu-icon" data-icon="roles"></span><span><strong>Family roles</strong><small>Keep responsibilities clear and shared.</small></span><span class="chevron">›</span></button>
+        <button class="menu-card" type="button"><span class="menu-icon" data-icon="palette"></span><span><strong>Categories</strong><small>Manage people and planner colours.</small></span><span class="chevron">›</span></button>
+      </div>
+
+      <section class="glance-card">
+        <div><p class="eyebrow inverse">Today at a glance</p><h2>One calm place for family life.</h2></div>
+        <div class="glance-stats"><span><b>3</b><small>events</small></span><span><b>2</b><small>tasks</small></span><span><b>1</b><small>update</small></span></div>
+      </section>
+    </section>
+  </template>
+
+  <template id="todoTemplate">
+    <section class="screen todo-screen">
+      <header class="page-head split-head">
+        <div><p class="eyebrow">Focus</p><h1 class="display-title">To Do</h1></div>
+        <div class="head-actions compact-actions"><button class="secondary-mini" type="button">Lists</button><button class="primary-mini" type="button" data-quick-add><span data-icon="plus"></span> New task</button></div>
+      </header>
+
+      <div class="text-tabs" role="tablist" aria-label="Task filters">
+        <button class="text-tab is-active" type="button">All</button><button class="text-tab" type="button">Mine</button><button class="text-tab" type="button">Shared</button><button class="text-tab" type="button">Completed</button>
+      </div>
+
+      <section class="list-section">
+        <div class="section-title">Open</div>
+        <label class="task-row"><input type="checkbox"><span class="task-check"></span><span class="task-copy"><strong>Call the busy people about Cassidy and Anthony</strong><small>Due Today</small></span></label>
+        <label class="task-row"><input type="checkbox"><span class="task-check"></span><span class="category-dot blue"></span><span class="task-copy"><strong>Walgreen Prescription</strong><small>You · Due Today</small></span></label>
+        <label class="task-row"><input type="checkbox"><span class="task-check"></span><span class="category-dot blue"></span><span class="task-copy"><strong>Pick up SUV</strong><small>You · Due Today</small></span></label>
+      </section>
+
+      <section class="list-section completed-list">
+        <div class="section-title">Done</div>
+        <label class="task-row is-complete"><input type="checkbox" checked><span class="task-check"></span><span class="category-dot orange"></span><span class="task-copy"><strong>Help movie</strong><small>Theresa · Done Yesterday</small></span></label>
+        <label class="task-row is-complete"><input type="checkbox" checked><span class="task-check"></span><span class="task-copy"><strong>Call Bank about loan</strong><small>Done Tue, Oct 6</small></span></label>
+      </section>
+    </section>
+  </template>
+
+  <template id="moneyTemplate">
+    <section class="screen money-screen">
+      <header class="page-head split-head"><div><p class="eyebrow">Family ledger</p><h1 class="display-title">Money</h1></div><button class="secondary-mini" type="button" data-quick-add><span data-icon="plus"></span> New</button></header>
+
+      <div class="money-summary-grid">
+        <article class="money-summary positive"><span class="summary-rule"></span><span class="summary-label">Owed to you</span><strong class="tabular">$450</strong><small>2 open items</small></article>
+        <article class="money-summary negative"><span class="summary-rule"></span><span class="summary-label">You owe</span><strong class="tabular">$200</strong><small>1 open item</small></article>
+      </div>
+
+      <section class="ledger-section">
+        <div class="ledger-head"><div><h2>Open balances</h2><p>Current individual & family expenses</p></div></div>
+        <div class="balance-group"><div class="balance-group-head forest-text"><span>Money you're owed</span><b class="tabular">+$450</b></div><button class="balance-row" type="button"><span><strong>Individual</strong><small>People who owe you money</small></span><span class="chevron">›</span></button><button class="balance-row" type="button"><span><strong>Group / family expense</strong><small>Shared expenses owed to you</small></span><span class="chevron">›</span></button></div>
+        <div class="balance-group"><div class="balance-group-head garnet-text"><span>Money you owe</span><b class="tabular">−$200</b></div><button class="balance-row" type="button"><span><strong>Individual</strong><small>People you owe money</small></span><span class="chevron">›</span></button><button class="balance-row" type="button"><span><strong>Group / family expense</strong><small>Shared expenses you owe</small></span><span class="chevron">›</span></button></div>
+      </section>
+
+      <section class="ledger-section recent-section">
+        <div class="ledger-head"><div><h2>Recent settlements</h2><p>Paid and settled history</p></div><span class="total-chip">Total $1,050</span></div>
+        <article class="transaction-row"><div><strong>Theresa Kelly paid you</strong><small>Settled up · Last Wednesday</small></div><b class="positive-text tabular">+$450</b></article>
+        <article class="transaction-row"><div><strong>You paid</strong><small>Water · Last Saturday</small></div><b class="tabular">−$200</b></article>
+        <article class="transaction-row"><div><strong>You paid</strong><small>Water softener bill · Last Saturday</small></div><b class="tabular">−$200</b></article>
+      </section>
+    </section>
+  </template>
+
+  <template id="capsuleTemplate">
+    <section class="screen capsule-screen">
+      <header class="page-head split-head">
+        <div><p class="eyebrow">Archive</p><h1 class="display-title two-line">Time<br>Capsule</h1><p class="subtle">Keep the moments worth returning to.</p></div>
+        <button class="primary-mini" type="button" data-quick-add><span data-icon="plus"></span> Add memory</button>
+      </header>
+
+      <div class="text-tabs" role="tablist" aria-label="Memory filters"><button class="text-tab is-active" type="button">All</button><button class="text-tab" type="button">Photos</button><button class="text-tab" type="button">Voice</button><button class="text-tab" type="button">Notes</button></div>
+
+      <div class="empty-state">
+        <div class="archive-illustration" aria-hidden="true"><span class="archive-card a"></span><span class="archive-card b"></span><span class="archive-card c"></span><span class="archive-badge" data-icon="archive"></span></div>
+        <h2>No memories yet</h2>
+        <p>Photos, voice notes and little stories you save will live here.</p>
+        <button class="primary-button medium" type="button" data-quick-add><span data-icon="plus"></span> Add your first memory</button>
+      </div>
+    </section>
+  </template>
+
+  <template id="quickAddTemplate">
+    <div class="sheet-content quick-add-sheet">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <header class="sheet-head"><div><p class="eyebrow">Planner entry</p><h2 id="sheetTitle">New activity</h2></div><button class="icon-button" type="button" aria-label="Close" data-close-sheet><span data-icon="x"></span></button></header>
+
+      <form class="activity-form" novalidate>
+        <label class="field"><span>Title</span><input id="activityTitle" type="text" placeholder="e.g. Dinner with Marie" /></label>
+        <div class="field-grid two"><label class="field"><span>Date</span><div class="input-shell"><input type="text" value="10/13/2026" /><i data-icon="calendar"></i></div></label><label class="field"><span>Time</span><div class="input-shell"><input type="text" value="06:30 PM" /><i data-icon="clock"></i></div></label></div>
+
+        <button class="disclosure" type="button" data-toggle-advanced><span><strong>More details</strong><small>Guests, roles, location, colour & notes</small></span><span class="chevron">⌄</span></button>
+
+        <div class="advanced-panel" data-advanced hidden>
+          <label class="field"><span>Location</span><input type="text" placeholder="Add a location" /></label>
+
+          <fieldset class="choice-group"><legend>Calendar colour</legend><div class="color-chips"><button class="color-chip is-selected" type="button"><i class="dot blue"></i>Sean</button><button class="color-chip" type="button"><i class="dot pink"></i>Work</button><button class="color-chip" type="button"><i class="dot red"></i>Family</button><button class="color-chip" type="button"><i class="dot orange"></i>Theresa</button><button class="color-chip" type="button"><i class="dot green"></i>Kids</button><button class="color-chip" type="button"><i class="dot slate"></i>Seanie</button><button class="color-chip" type="button"><i class="dot purple"></i>Dame</button><button class="color-chip" type="button"><i class="dot ochre"></i>Marie</button></div></fieldset>
+
+          <fieldset class="choice-group"><legend>Guests</legend><div class="guest-chips"><button class="guest-chip is-selected" type="button">Everyone</button><button class="guest-chip" type="button">Theresa</button><button class="guest-chip" type="button">Marie</button></div></fieldset>
+
+          <fieldset class="choice-group"><legend>Roles</legend><div class="guest-chips"><button class="guest-chip" type="button">Host</button><button class="guest-chip" type="button">Driver</button><button class="guest-chip" type="button">Helper</button></div></fieldset>
+
+          <label class="field"><span>Notes</span><textarea rows="4" placeholder="Add anything the family should know…"></textarea></label>
+        </div>
+
+        <div class="form-actions">
+          <button class="primary-button" type="button" data-save-activity>Save activity</button>
+          <button class="secondary-button" type="button" data-save-another>Save & add another</button>
+          <button class="tertiary-button" type="button" data-close-sheet>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </template>
+
+  <template id="announcementsTemplate">
+    <div class="sheet-content announcements-sheet">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <header class="sheet-head"><div><p class="eyebrow">Family bulletin</p><h2 id="sheetTitle">Announcements</h2></div><button class="text-link strong" type="button" data-close-sheet>Done</button></header>
+      <button class="primary-button" type="button"><span data-icon="plus"></span> Post announcement</button>
+
+      <article class="announcement-card"><div class="announcement-person"><span class="mini-avatar">S</span><div><strong>Sean</strong><p>Augie is a boggy</p></div></div><small>Until Sunday</small><div class="announcement-actions"><button type="button">Hide</button><button class="danger-link" type="button">Remove</button></div><button class="comment-row" type="button"><span><span data-icon="comment"></span> 2 comments</span><span>›</span></button></article>
+      <article class="announcement-card"><div class="announcement-person"><span class="mini-avatar">S</span><div><strong>Sean</strong><p>Have a great week!</p></div></div><small>Until Sunday</small><div class="announcement-actions"><button type="button">Hide</button><button class="danger-link" type="button">Remove</button></div><button class="comment-row" type="button"><span><span data-icon="comment"></span> Comments</span><span>›</span></button></article>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
